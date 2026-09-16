@@ -1,0 +1,76 @@
+import time
+import sys
+name = input("ввведите свое имя: ")
+print('привет', name +',' ' рад тебя видеть!\n')
+                                                                #приветствие
+while True:
+    capt = input('НЕ РОБОТ ЛИ ВЫ?\nвведите сумму 5 и 4; ')
+    if capt == "9":
+        print('идет проверка...\n')
+        time.sleep(1)
+        print('каптча введена верно! Продолжаем!\n')
+        break
+    else:
+        print("\nкаптча введена не верно!\nПопробуйте снова\n")
+        continue
+                                                                #пародия на каптчу типо)
+while True:
+    try:
+        age = int(input('введите свой возраст:'))
+    except ValueError:
+        print('впиши только цифры!')
+        continue
+    if age < 18:
+        print('извините, проход только с 18 лет.')
+        a = int(input('ввели неправильный возраст?\n1 - ввести другой\n2 - выйти из программы:'))
+        if a == 1:
+            continue
+        elif a == 2:
+            sys.exit()
+        else:
+            print('введие один из вариантов ответа!')
+
+
+    elif age >= 18:
+        print('\nотлично, продолжаем!')
+        break
+
+                                                                #проверка на возраст
+print('пришло время создать аккаунт!')
+nikname = input('придумай и введи свой ник: ')
+username = input('придумай и введи креативный юзернейм: ')
+print('\nотлично твой аккаунт создан\nникнейм -', nikname, '\nюзернейм -',username,'\nчисло подписчиков - 0')
+                                                                #создание аккаунта
+user = [nikname, username, 0]
+
+def show_user():
+    print('\n--- Твой аккаунт ---')
+    print('ник       :', user[0])
+    print('юзернейм  :', user[1])
+    print('подписчики:', user[2])
+    print('--------------------\n')
+while True:
+    print('Что хочешь сделать?')
+    print('1 - изменить ник')
+    print('2 - изменить юзернейм')
+    print('3 - показать аккаунт')
+    print('4 - выйти')
+
+    choice = input('выбери пункт: ')
+    if choice == '1':
+        newnik = input('введите новый ник: ')
+        user[0] = newnik
+        print('Ник успешно изменен!')
+    elif choice == '2':
+        newuser = input('введите новый юзернейм: ')
+        user[1] = newuser
+        print('ник успешно изменен!')
+    elif choice == '3':
+        show_user()
+    elif choice == '4':
+        print('пока!')
+        sys.exit()
+    else:
+        print('такой команды нет, попробуйте снова!')
+        continue                                                    #панель управления
+
